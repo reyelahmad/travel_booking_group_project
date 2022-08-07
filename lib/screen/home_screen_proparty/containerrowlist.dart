@@ -47,16 +47,16 @@ class _ContainerRowListState extends State<ContainerRowList> {
                       blurRadius: 0,
                       offset: Offset(0,0)
                   ),],
-                  color: rowmenulist1selected==index? AppColors.myOrange:AppColors.myWhite,
+                  color: rowmenulist1selected==index? AppColors.myOrange.withOpacity(0.9):AppColors.myWhite,
                   borderRadius: BorderRadius.circular(10.r),
                 ),
                 child: Padding(
-                  padding: const EdgeInsets.only(left: 8,right: 1),
+                  padding: const EdgeInsets.only(left: 8,right: 1,top: 3,bottom: 3),
                   child: Row(
                     children: [
                       Container(
-                        height: 40.h,
-                        width: 40.w,
+                        height: 38.h,
+                        width: 43.w,
                         decoration: BoxDecoration(
                           color: AppColors.myWhite,
                           borderRadius: BorderRadius.circular(10.r),

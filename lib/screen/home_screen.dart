@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:travel_booking_group_project/model/color.dart';
 import 'package:travel_booking_group_project/model/container_menu_list.dart';
+import 'package:travel_booking_group_project/screen/home_screen_proparty/circle_menu_list.dart';
 import 'package:travel_booking_group_project/screen/home_screen_proparty/containerrowlist.dart';
 import 'package:travel_booking_group_project/screen/home_screen_proparty/hotel_list.dart';
 import 'package:travel_booking_group_project/screen/home_screen_proparty/listrowlist.dart';
@@ -30,7 +31,7 @@ class _HomeScreenState extends State<HomeScreen> {
       body: SafeArea(
         
         child: Container(
-          margin: EdgeInsets.all(6.r),
+          margin: EdgeInsets.only(top: 7.h,left: 3.w,right: 3.w),
           height: double.infinity,
           width: double.infinity,
           color: AppColors.myWhite.withOpacity(0.5),
@@ -45,8 +46,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   Row(
                     children: [
                       Container(
+                       // margin: EdgeInsets.only(left: 3.w),
                         height: 50.h,
-                        width: 50.w,
+                        width: 55.w,
                         decoration: BoxDecoration(
                             boxShadow: [
                               BoxShadow(
@@ -64,7 +66,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 fit: BoxFit.cover)),
                       ),
                       SizedBox(
-                        width: 10.w,
+                        width: 13.w,
                       ),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -86,8 +88,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     ],
                   ),
                   Container(
+                   // margin: EdgeInsets.only(right: 3.w),
                     height: 40.h,
-                    width: 40.w,
+                    width: 45.w,
                     child: Padding(
                       padding: const EdgeInsets.all(12),
                       child: SvgPicture.asset(
@@ -104,7 +107,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ],
               ),
               SizedBox(
-                height: 20.h,
+                height: 26.h,
               ),
               //this is for search bar
               Container(
@@ -143,7 +146,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     Container(
                       height: 40.h,
-                      width: 40.w,
+                      width: 42.w,
                       child: Padding(
                         padding: const EdgeInsets.all(12),
                         child: SvgPicture.asset(
@@ -158,21 +161,22 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
               SizedBox(
-                height: 10.h,
+                height: 18.h,
               ),
               //this is container row list and its create on another page which is in the home screen property
               ContainerRowList(),
-              SizedBox(height: 15.h,),
+              SizedBox(height: 20.h,),
               MyBigText(mybigtext: "Explore Cities", myBigFontcolors: AppColors.myBlack, myBigFontwidth: FontWeight.bold, bigfontsize: 20),
-              SizedBox(height: 7.h,),
+              SizedBox(height: 9.h,),
               //List Row Add here
               ListRowList(),
-              SizedBox(height: 10.h,),
+              SizedBox(height: 12.h,),
               //hotel list view and all data will load here
               HotelList(),
-              SizedBox(height: 12.h,),
+              SizedBox(height: 14.h,),
               MyBigText(mybigtext: "Popular Categories", myBigFontcolors: AppColors.myBlack, myBigFontwidth: FontWeight.bold, bigfontsize: 20),
-              SizedBox(height: 12.h,),
+              SizedBox(height: 14.h,),
+              Circle_menu(),
 
             ],
           ),

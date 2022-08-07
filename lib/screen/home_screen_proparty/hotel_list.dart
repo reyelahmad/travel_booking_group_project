@@ -12,7 +12,7 @@ class HotelList extends StatelessWidget {
   Widget build(BuildContext context) {
     var hoteldata = TravelData.myHotelListData();
     return SizedBox(
-        height: 180.h,
+        height: 190.h,
         child: ListView.builder(
             scrollDirection: Axis.horizontal,
             itemCount: hoteldata.length,
@@ -21,7 +21,7 @@ class HotelList extends StatelessWidget {
                 onTap: () {},
                 child: Container(
                   margin: EdgeInsets.only(left: 5, right: 8, top: 8, bottom: 8),
-                  width: 180.w,
+                  width: 200.w,
                   decoration: BoxDecoration(
                       boxShadow: [
                         BoxShadow(
@@ -34,6 +34,7 @@ class HotelList extends StatelessWidget {
                       color: Colors.black.withOpacity(0.06),
                       borderRadius: BorderRadius.circular(10.r)),
                   child: Column(
+                   // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       //hotel image will add here
                       Stack(
@@ -41,8 +42,8 @@ class HotelList extends StatelessWidget {
                           Positioned(
                             child: Container(
                               margin: EdgeInsets.only(top: 10),
-                              height: 115.h,
-                              width: 160.w,
+                              height: 125.h,
+                              width: 180.w,
                               decoration: BoxDecoration(
                                   image: DecorationImage(
                                       image: AssetImage(
@@ -53,8 +54,8 @@ class HotelList extends StatelessWidget {
                             ),
                           ),
                           Positioned(
-                              right: 7.5.w,
-                              top: 15.h,
+                              right: 6.w,
+                              top: 12.h,
                               child: CircleAvatar(
                                 radius: 15.r,
                                 backgroundColor:
@@ -81,7 +82,7 @@ class HotelList extends StatelessWidget {
                                     mybigtext: hoteldata[index].name,
                                     myBigFontcolors: AppColors.myBlack,
                                     myBigFontwidth: FontWeight.w800,
-                                    bigfontsize: 15),
+                                    bigfontsize: 17),
 
                               ],
                             ),
@@ -91,7 +92,7 @@ class HotelList extends StatelessWidget {
                               children: [
                                 Icon(
                                   Icons.star_outline,
-                                  size: 13.r,
+                                  size: 15.r,
                                 ),
                                 SizedBox(
                                   width: 2.w,
@@ -101,16 +102,19 @@ class HotelList extends StatelessWidget {
                                     myFontcolors:
                                     AppColors.myBlack.withOpacity(0.6),
                                     myFontwidth: null,
-                                    smallfontsize: 12)
+                                    smallfontsize: 13)
                               ],
                             ),
                           ],
                         ),
                       ),
+                      //
                       // location and price will add here
+
+                      SizedBox(height: 3.h,),
                       Padding(
                         padding: const EdgeInsets.only(
-                            top: 0, left: 10, right: 10, bottom: 1),
+                            top: 0, left: 10, right: 10, bottom: 5),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           crossAxisAlignment: CrossAxisAlignment.end,
@@ -121,36 +125,36 @@ class HotelList extends StatelessWidget {
                               children: [
                                 Icon(
                                   Icons.add_location_rounded,
-                                  size: 12.r,
+                                  size: 14.r,
                                 ),
                                 SizedBox(
                                   width: 2.w,
                                 ),
                                 MySmallText(
                                     mytext: hoteldata[index]
-                                        .locations
-                                        .substring(0, 16),
+                                        .locations,
+                                       // .substring(0, 16),
                                     myFontcolors:
                                         AppColors.myBlack.withOpacity(0.6),
                                     myFontwidth: null,
-                                    smallfontsize: 11)
+                                    smallfontsize: 12)
                               ],
                             ),
                             Row(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              crossAxisAlignment: CrossAxisAlignment.end,
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 MyBigText(
                                     mybigtext: "125",
                                     myBigFontcolors: AppColors.myOrange,
                                     myBigFontwidth: FontWeight.bold,
-                                    bigfontsize: 11),
+                                    bigfontsize: 13),
                                 MySmallText(
-                                    mytext: "/person",
+                                    mytext: "/"+"person",
                                     myFontcolors:
                                         AppColors.myBlack.withOpacity(0.6),
                                     myFontwidth: null,
-                                    smallfontsize: 11)
+                                    smallfontsize: 12)
                               ],
                             ),
                           ],
