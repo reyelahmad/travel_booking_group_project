@@ -3,26 +3,40 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:travel_booking_group_project/model/color.dart';
+import 'package:travel_booking_group_project/model/container_menu_list.dart';
+import 'package:travel_booking_group_project/screen/home_screen_proparty/containerrowlist.dart';
+import 'package:travel_booking_group_project/screen/home_screen_proparty/hotel_list.dart';
+import 'package:travel_booking_group_project/screen/home_screen_proparty/listrowlist.dart';
 import 'package:travel_booking_group_project/widgets/my_font_style.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+
+
 
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }
 
+
+
 class _HomeScreenState extends State<HomeScreen> {
+
   @override
   Widget build(BuildContext context) {
+
+
     return Scaffold(
+      //backgroundColor: Colors.blue.withOpacity(0.05),
       body: SafeArea(
+        
         child: Container(
           margin: EdgeInsets.all(6.r),
           height: double.infinity,
           width: double.infinity,
-          color: AppColors.myWhite,
+          color: AppColors.myWhite.withOpacity(0.5),
+          //color: Colors.black.withOpacity(0.05),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               //this is for app bar
               Row(
@@ -117,8 +131,14 @@ class _HomeScreenState extends State<HomeScreen> {
                             color: AppColors.myOrange,
                           ),
                         ),
-                        SizedBox(width: 4.w,),
-                        MySmallText(mytext: "Discover a city", myFontcolors:AppColors.myBlack.withOpacity(0.5), myFontwidth: FontWeight.w100, smallfontsize: 16)
+                        SizedBox(
+                          width: 4.w,
+                        ),
+                        MySmallText(
+                            mytext: "Discover a city",
+                            myFontcolors: AppColors.myBlack.withOpacity(0.5),
+                            myFontwidth: FontWeight.w100,
+                            smallfontsize: 16)
                       ],
                     ),
                     Container(
@@ -138,8 +158,22 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
               SizedBox(
-                height: 20.h,
+                height: 10.h,
               ),
+              //this is container row list and its create on another page which is in the home screen property
+              ContainerRowList(),
+              SizedBox(height: 15.h,),
+              MyBigText(mybigtext: "Explore Cities", myBigFontcolors: AppColors.myBlack, myBigFontwidth: FontWeight.bold, bigfontsize: 20),
+              SizedBox(height: 7.h,),
+              //List Row Add here
+              ListRowList(),
+              SizedBox(height: 10.h,),
+              //hotel list view and all data will load here
+              HotelList(),
+              SizedBox(height: 12.h,),
+              MyBigText(mybigtext: "Popular Categories", myBigFontcolors: AppColors.myBlack, myBigFontwidth: FontWeight.bold, bigfontsize: 20),
+              SizedBox(height: 12.h,),
+
             ],
           ),
         ),
@@ -147,3 +181,4 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
+//Text(rowmenulist[index].name),
