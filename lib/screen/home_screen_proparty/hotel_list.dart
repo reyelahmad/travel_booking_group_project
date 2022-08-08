@@ -3,22 +3,35 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:travel_booking_group_project/model/color.dart';
 import 'package:travel_booking_group_project/model/hotel_data_info.dart';
+
+import 'package:travel_booking_group_project/screen/details_screen.dart';
 import 'package:travel_booking_group_project/widgets/my_font_style.dart';
 
-class HotelList extends StatelessWidget {
+import '../../model/hotel_data_info.dart';
+
+class HotelList extends StatefulWidget {
   const HotelList({Key? key}) : super(key: key);
 
   @override
+  State<HotelList> createState() => _HotelListState();
+}
+
+class _HotelListState extends State<HotelList> {
+  @override
   Widget build(BuildContext context) {
-    var hoteldata = TravelData.myHotelListData();
+   // var hoteldata = TravelData.myHotelListData;
     return SizedBox(
         height: 190.h,
         child: ListView.builder(
             scrollDirection: Axis.horizontal,
-            itemCount: hoteldata.length,
+            itemCount: myHotelListData.length,
             itemBuilder: (context, index) {
-              return GestureDetector(
-                onTap: () {},
+              return InkWell(
+                onTap: (){setState(() {
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>DetailsPage(
+                    model: myHotelListData[index],
+                  )));
+                });},
                 child: Container(
                   margin: EdgeInsets.only(left: 5, right: 8, top: 8, bottom: 8),
                   width: 200.w,
@@ -71,7 +84,7 @@ class HotelList extends StatelessWidget {
                       //text and others info will add here
                       Padding(
                         padding: const EdgeInsets.only(
-                            top: 5, left: 10, right: 10, bottom: 2),
+                            top: 5, left: 10, right: 10, bottom: 1),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -79,10 +92,10 @@ class HotelList extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 MyBigText(
-                                    mybigtext: hoteldata[index].name,
+                                    mybigtext: myHotelListData[index].name,
                                     myBigFontcolors: AppColors.myBlack,
                                     myBigFontwidth: FontWeight.w800,
-                                    bigfontsize: 17),
+                                    bigfontsize: 16),
 
                               ],
                             ),
@@ -98,7 +111,7 @@ class HotelList extends StatelessWidget {
                                   width: 2.w,
                                 ),
                                 MySmallText(
-                                    mytext: "${hoteldata[index].rating}",
+                                    mytext: "${myHotelListData[index].rating}",
                                     myFontcolors:
                                     AppColors.myBlack.withOpacity(0.6),
                                     myFontwidth: null,
@@ -111,10 +124,10 @@ class HotelList extends StatelessWidget {
                       //
                       // location and price will add here
 
-                      SizedBox(height: 3.h,),
+                      SizedBox(height: 2.h,),
                       Padding(
                         padding: const EdgeInsets.only(
-                            top: 0, left: 10, right: 10, bottom: 5),
+                            top: 0, left: 10, right: 10, bottom: 1.5),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           crossAxisAlignment: CrossAxisAlignment.end,
@@ -131,7 +144,7 @@ class HotelList extends StatelessWidget {
                                   width: 2.w,
                                 ),
                                 MySmallText(
-                                    mytext: hoteldata[index]
+                                    mytext: myHotelListData[index]
                                         .locations,
                                        // .substring(0, 16),
                                     myFontcolors:
@@ -148,13 +161,13 @@ class HotelList extends StatelessWidget {
                                     mybigtext: "125",
                                     myBigFontcolors: AppColors.myOrange,
                                     myBigFontwidth: FontWeight.bold,
-                                    bigfontsize: 13),
+                                    bigfontsize: 12),
                                 MySmallText(
                                     mytext: "/"+"person",
                                     myFontcolors:
                                         AppColors.myBlack.withOpacity(0.6),
                                     myFontwidth: null,
-                                    smallfontsize: 12)
+                                    smallfontsize: 11)
                               ],
                             ),
                           ],

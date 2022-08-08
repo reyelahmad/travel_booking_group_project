@@ -176,6 +176,7 @@ class _HomeScreenState extends State<HomeScreen> {
               SizedBox(height: 14.h,),
               MyBigText(mybigtext: "Popular Categories", myBigFontcolors: AppColors.myBlack, myBigFontwidth: FontWeight.bold, bigfontsize: 20),
               SizedBox(height: 14.h,),
+              //heres circle menu list
               Circle_menu(),
 
             ],
@@ -185,4 +186,3 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
-//Text(rowmenulist[index].name),
