@@ -175,7 +175,7 @@ class _HomeScreenState extends State<HomeScreen> {
               HotelList(),
               SizedBox(height: 14.h,),
               MyBigText(mybigtext: "Popular Categories", myBigFontcolors: AppColors.myBlack, myBigFontwidth: FontWeight.bold, bigfontsize: 20),
-              SizedBox(height: 14.h,),
+              SizedBox(height: 12.h,),
               //heres circle menu list
               Circle_menu(),
 

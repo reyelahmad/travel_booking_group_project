@@ -19,7 +19,7 @@ class HotelList extends StatefulWidget {
 class _HotelListState extends State<HotelList> {
   @override
   Widget build(BuildContext context) {
-   // var hoteldata = TravelData.myHotelListData;
+    // var hoteldata = TravelData.myHotelListData;
     return SizedBox(
         height: 190.h,
         child: ListView.builder(
@@ -27,11 +27,16 @@ class _HotelListState extends State<HotelList> {
             itemCount: myHotelListData.length,
             itemBuilder: (context, index) {
               return InkWell(
-                onTap: (){setState(() {
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>DetailsPage(
-                    model: myHotelListData[index],
-                  )));
-                });},
+                onTap: () {
+                  setState(() {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => DetailsPage(
+                                  model: myHotelListData[index],
+                                )));
+                  });
+                },
                 child: Container(
                   margin: EdgeInsets.only(left: 5, right: 8, top: 8, bottom: 8),
                   width: 200.w,
@@ -47,7 +52,7 @@ class _HotelListState extends State<HotelList> {
                       color: Colors.black.withOpacity(0.06),
                       borderRadius: BorderRadius.circular(10.r)),
                   child: Column(
-                   // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       //hotel image will add here
                       Stack(
@@ -60,7 +65,7 @@ class _HotelListState extends State<HotelList> {
                               decoration: BoxDecoration(
                                   image: DecorationImage(
                                       image: AssetImage(
-                                          'assetes/images/background/bg.png'),
+                                          myHotelListData[index].img),
                                       fit: BoxFit.cover),
                                   color: AppColors.myWhite,
                                   borderRadius: BorderRadius.circular(10.r)),
@@ -95,13 +100,11 @@ class _HotelListState extends State<HotelList> {
                                     mybigtext: myHotelListData[index].name,
                                     myBigFontcolors: AppColors.myBlack,
                                     myBigFontwidth: FontWeight.w800,
-                                    bigfontsize: 16),
-
+                                    bigfontsize: 14),
                               ],
                             ),
                             Row(
-                              mainAxisAlignment:
-                              MainAxisAlignment.spaceBetween,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Icon(
                                   Icons.star_outline,
@@ -113,7 +116,7 @@ class _HotelListState extends State<HotelList> {
                                 MySmallText(
                                     mytext: "${myHotelListData[index].rating}",
                                     myFontcolors:
-                                    AppColors.myBlack.withOpacity(0.6),
+                                        AppColors.myBlack.withOpacity(0.6),
                                     myFontwidth: null,
                                     smallfontsize: 13)
                               ],
@@ -124,7 +127,9 @@ class _HotelListState extends State<HotelList> {
                       //
                       // location and price will add here
 
-                      SizedBox(height: 2.h,),
+                      SizedBox(
+                        height: 2.h,
+                      ),
                       Padding(
                         padding: const EdgeInsets.only(
                             top: 0, left: 10, right: 10, bottom: 1.5),
@@ -144,13 +149,12 @@ class _HotelListState extends State<HotelList> {
                                   width: 2.w,
                                 ),
                                 MySmallText(
-                                    mytext: myHotelListData[index]
-                                        .locations,
-                                       // .substring(0, 16),
+                                    mytext: myHotelListData[index].locations,
+                                    // .substring(0, 16),
                                     myFontcolors:
                                         AppColors.myBlack.withOpacity(0.6),
                                     myFontwidth: null,
-                                    smallfontsize: 12)
+                                    smallfontsize: 10)
                               ],
                             ),
                             Row(
@@ -158,12 +162,13 @@ class _HotelListState extends State<HotelList> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 MyBigText(
-                                    mybigtext: "125",
-                                    myBigFontcolors: AppColors.myOrange,
-                                    myBigFontwidth: FontWeight.bold,
-                                    bigfontsize: 12),
+                                  myBigFontcolors: AppColors.myOrange,
+                                  myBigFontwidth: FontWeight.bold,
+                                  bigfontsize: 12,
+                                  mybigtext: myHotelListData[index].price,
+                                ),
                                 MySmallText(
-                                    mytext: "/"+"person",
+                                    mytext: "Tk/=" + "person",
                                     myFontcolors:
                                         AppColors.myBlack.withOpacity(0.6),
                                     myFontwidth: null,
